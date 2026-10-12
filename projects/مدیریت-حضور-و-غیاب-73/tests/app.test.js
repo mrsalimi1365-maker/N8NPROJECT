@@ -1,0 +1,13 @@
+const assert=require('node:assert/strict');
+const {statuses,datesBetween,validatePerson,filterPeople,attendancePercent}=require('../app.js');
+assert.equal(statuses.present,'حاضر');
+assert.deepEqual(datesBetween('2026-01-01','2026-01-03'),['2026-01-01','2026-01-02','2026-01-03']);
+assert.equal(datesBetween('2026-01-03','2026-01-01').length,0);
+const people=[{id:'1',name:'علی رضایی',code:'10',group:'فروش',status:'present'},{id:'2',name:'مریم احمدی',code:'11',group:'فنی',status:'absent'}];
+assert.equal(validatePerson({id:'3',name:'سارا',code:'12'},people),true);
+assert.equal(validatePerson({id:'3',name:'سارا',code:'10'},people),false);
+assert.equal(filterPeople(people,'علی','present').length,1);
+assert.equal(filterPeople(people,'','absent')[0].name,'مریم احمدی');
+assert.equal(attendancePercent({present:5,late:2,mission:1},10),80);
+assert.equal(attendancePercent({present:0,late:0,mission:0},0),0);
+console.log('همه تست‌ها با موفقیت انجام شدند.');
