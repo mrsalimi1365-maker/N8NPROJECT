@@ -1,0 +1,9 @@
+{
+  "name": "student-feedback-survey",
+  "version": "1.0.0",
+  "private": true,
+  "description": "نظرسنجی بازخورد دانش‌آموزان با پنج سؤال",
+  "scripts": {
+    "test": "node test.js"
+  }
+}
