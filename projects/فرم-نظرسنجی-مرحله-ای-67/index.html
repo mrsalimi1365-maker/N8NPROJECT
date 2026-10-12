@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>نظرسنجی رنگارنگ</title>
+  <style>
+    :root {
+      --purple: #6c4cf1;
+      --pink: #f5478b;
+      --teal: #14b8a6;
+      --yellow: #ffd166;
+      --ink: #24213a;
+      --muted: #706d83;
+      --card: rgba(255, 255, 255, .94);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: Tahoma, Arial, sans-serif;
+      background: linear-gradient(135deg, #fff0b8, #ffd7e8 45%, #c9f7f1);
+    }
+    .shell { width: min(920px, calc(100% - 32px)); margin: 0 auto; padding: 34px 0 50px; }
+    header { text-align: center; margin-bottom: 24px; }
+    .logo { display: inline-grid; place-items: center; width: 66px; height: 66px; border-radius: 22px; color: white; font-size: 30px; background: linear-gradient(135deg, var(--purple), var(--pink)); box-shadow: 0 10px 25px #6c4cf144; }
+    h1 { margin: 14px 0 8px; font-size: clamp(1.65rem, 5vw, 2.5rem); }
+    header p { color: var(--muted); margin: 0; }
+    .card { background: var(--card); border: 1px solid #ffffff; border-radius: 28px; padding: clamp(22px, 5vw, 42px); box-shadow: 0 18px 60px #6b4b8320; }
+    .steps { display: flex; gap: 12px; margin-bottom: 30px; }
+    .step { flex: 1; padding: 11px; border-radius: 14px; text-align: center; font-size: .9rem; font-weight: bold; color: var(--muted); background: #f2effb; }
+    .step.active { color: white; background: linear-gradient(90deg, var(--purple), var(--pink)); }
+    .step.done { color: #087d71; background: #d8faf4; }
+    .section-title { margin-top: 0; margin-bottom: 8px; }
+    .hint { color: var(--muted); margin-top: 0; line-height: 1.8; }
+    label { display: block; font-weight: bold; margin: 18px 0 8px; }
+    input[type="text"] { width: 100%; border: 2px solid #e8e3f2; border-radius: 13px; padding: 14px; font: inherit; color: var(--ink); outline: none; transition: .2s; }
+    input[type="text"]:focus { border-color: var(--purple); box-shadow: 0 0 0 4px #6c4cf122; }
+    .questions { display: grid; gap: 14px; }
+    .question { margin: 0; padding: 18px; border-radius: 18px; background: linear-gradient(120deg, #fff7da, #fff); border-right: 5px solid var(--yellow); }
+    .question:nth-child(2n) { border-right-color: var(--pink); background: linear-gradient(120deg, #ffe8f1, #fff); }
+    .question:nth-child(3n) { border-right-color: var(--teal); background: linear-gradient(120deg, #e1fbf7, #fff); }
+    .question legend { font-weight: bold; line-height: 1.8; padding: 0 4px; }
+    .options { display: flex; gap: 12px; margin-top: 12px; }
+    .option { flex: 1; cursor: pointer; }
+    .option input { position: absolute; opacity: 0; }
+    .option span { display: block; text-align: center; padding: 11px; border: 2px solid #e5e1ed; border-radius: 12px; background: white; transition: .2s; }
+    .option input:checked + span { color: white; border-color: var(--purple); background: var(--purple); }
+    .actions { display: flex; gap: 12px; margin-top: 24px; }
+    button { border: 0; border-radius: 13px; padding: 14px 22px; font: inherit; font-weight: bold; cursor: pointer; }
+    .primary { flex: 1; color: white; background: linear-gradient(90deg, var(--purple), var(--pink)); }
+    .secondary { color: var(--purple); background: #eeeafe; }
+    button:hover { filter: brightness(1.05); transform: translateY(-1px); }
+    .error { color: #c62857; min-height: 24px; margin: 10px 0 0; font-size: .9rem; font-weight: bold; }
+    .success { text-align: center; padding: 20px; }
+    .success-icon { font-size: 54px; }
+    .summary { margin: 20px 0; padding: 18px; border-radius: 16px; text-align: right; background: #f4f1ff; line-height: 2; }
+    [hidden] { display: none !important; }
+    @media (max-width: 520px) { .shell { width: min(100% - 20px, 920px); padding-top: 20px; } .card { padding: 20px 16px; border-radius: 22px; } .steps { gap: 6px; } .step { font-size: .75rem; padding: 9px 4px; } .actions { flex-direction: column; } }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div class="logo" aria-hidden="true">✦</div>
+      <h1>صدای شما مهم است!</h1>
+      <p>با چند پاسخ کوتاه، تجربه‌تان را با ما به اشتراک بگذارید.</p>
+    </header>
+
+    <section class="card" aria-live="polite">
+      <div class="steps" aria-label="مراحل فرم">
+        <div id="stepIndicator1" class="step active">۱. مشخصات شما</div>
+        <div id="stepIndicator2" class="step">۲. نظرسنجی</div>
+      </div>
+
+      <form id="identityForm" novalidate>
+        <h2 class="section-title">اول خودتان را معرفی کنید</h2>
+        <p class="hint">لطفاً نام و نام خانوادگی خود را وارد کنید تا بعد به پرسش‌های نظرسنجی برسید.</p>
+        <label for="firstName">نام <span aria-hidden="true">*</span></label>
+        <input id="firstName" name="firstName" type="text" autocomplete="given-name" placeholder="مثلاً سارا" required>
+        <label for="lastName">نام خانوادگی <span aria-hidden="true">*</span></label>
+        <input id="lastName" name="lastName" type="text" autocomplete="family-name" placeholder="مثلاً احمدی" required>
+        <p id="identityError" class="error" role="alert"></p>
+        <div class="actions"><button class="primary" type="submit">ادامه به نظرسنجی ←</button></div>
+      </form>
+
+      <form id="surveyForm" hidden novalidate>
+        <h2 class="section-title">نظرسنجی تجربه شما</h2>
+        <p class="hint">لطفاً برای هر پرسش یکی از گزینه‌های بله یا خیر را انتخاب کنید.</p>
+        <div class="questions">
+          <fieldset class="question"><legend>۱. آیا استفاده از این فرم برای شما ساده و روان بود؟</legend><div class="options"><label class="option"><input type="radio" name="q1" value="بله" required><span>بله</span></label><label class="option"><input type="radio" name="q1" value="خیر"><span>خیر</span></label></div></fieldset>
+          <fieldset class="question"><legend>۲. آیا ظاهر رنگارنگ صفحه را می‌پسندید؟</legend><div class="options"><label class="option"><input type="radio" name="q2" value="بله" required><span>بله</span></label><label class="option"><input type="radio" name="q2" value="خیر"><span>خیر</span></label></div></fieldset>
+          <fieldset class="question"><legend>۳. آیا توضیحات هر مرحله برای شما کافی بود؟</legend><div class="options"><label class="option"><input type="radio" name="q3" value="بله" required><span>بله</span></label><label class="option"><input type="radio" name="q3" value="خیر"><span>خیر</span></label></div></fieldset>
+          <fieldset class="question"><legend>۴. آیا تمایل دارید دوباره در نظرسنجی‌های ما شرکت کنید؟</legend><div class="options"><label class="option"><input type="radio" name="q4" value="بله" required><span>بله</span></label><label class="option"><input type="radio" name="q4" value="خیر"><span>خیر</span></label></div></fieldset>
+          <fieldset class="question"><legend>۵. آیا این نظرسنجی را به دوستانتان پیشنهاد می‌کنید؟</legend><div class="options"><label class="option"><input type="radio" name="q5" value="بله" required><span>بله</span></label><label class="option"><input type="radio" name="q5" value="خیر"><span>خیر</span></label></div></fieldset>
+        </div>
+        <p id="surveyError" class="error" role="alert"></p>
+        <div class="actions"><button id="backButton" class="secondary" type="button">→ بازگشت</button><button class="primary" type="submit">ثبت نظرسنجی ✓</button></div>
+      </form>
+
+      <section id="successPanel" class="success" hidden>
+        <div class="success-icon" aria-hidden="true">🎉</div>
+        <h2>ممنون که وقت گذاشتید!</h2>
+        <p>پاسخ‌های شما با موفقیت ثبت شد.</p>
+        <div id="summary" class="summary"></div>
+        <button id="restartButton" class="secondary" type="button">شروع دوباره</button>
+      </section>
+    </section>
+  </main>
+  <script>
+    (() => {
+      const identityForm = document.querySelector('#identityForm');
+      const surveyForm = document.querySelector('#surveyForm');
+      const successPanel = document.querySelector('#successPanel');
+      const identityError = document.querySelector('#identityError');
+      const surveyError = document.querySelector('#surveyError');
+      const firstName = document.querySelector('#firstName');
+      const lastName = document.querySelector('#lastName');
+      const indicator1 = document.querySelector('#stepIndicator1');
+      const indicator2 = document.querySelector('#stepIndicator2');
+      let person = null;
+
+      identityForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const first = firstName.value.trim();
+        const last = lastName.value.trim();
+        if (!first || !last) {
+          identityError.textContent = 'لطفاً هر دو فیلد نام و نام خانوادگی را کامل کنید.';
+          (!first ? firstName : lastName).focus();
+          return;
+        }
+        person = { first, last };
+        identityError.textContent = '';
+        identityForm.hidden = true;
+        surveyForm.hidden = false;
+        indicator1.classList.remove('active');
+        indicator1.classList.add('done');
+        indicator2.classList.add('active');
+        surveyForm.querySelector('input').focus();
+      });
+
+      document.querySelector('#backButton').addEventListener('click', () => {
+        surveyForm.hidden = true;
+        identityForm.hidden = false;
+        indicator2.classList.remove('active');
+        indicator1.classList.remove('done');
+        indicator1.classList.add('active');
+        firstName.focus();
+      });
+
+      surveyForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (!person) return;
+        if (!surveyForm.checkValidity()) {
+          surveyError.textContent = 'لطفاً به هر پنج پرسش پاسخ دهید.';
+          surveyForm.querySelector(':invalid').focus();
+          return;
+        }
+        surveyError.textContent = '';
+        const answers = [...new FormData(surveyForm).values()];
+        document.querySelector('#summary').innerHTML = '<strong>' + escapeHtml(person.first + ' ' + person.last) + '</strong> عزیز، پاسخ‌های شما دریافت شد.<br>تعداد پاسخ‌های «بله»: ' + answers.filter((answer) => answer === 'بله').length + ' از ۵';
+        surveyForm.hidden = true;
+        successPanel.hidden = false;
+      });
+
+      document.querySelector('#restartButton').addEventListener('click', () => {
+        person = null;
+        identityForm.reset();
+        surveyForm.reset();
+        successPanel.hidden = true;
+        identityForm.hidden = false;
+        indicator2.classList.remove('active');
+        indicator1.classList.remove('done');
+        indicator1.classList.add('active');
+        firstName.focus();
+      });
+
+      function escapeHtml(value) {
+        return value.replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[char]));
+      }
+    })();
+  </script>
+</body>
+</html>
