@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A colorful customer feedback survey.">
+  <title>BrightView Survey</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Survey responses are saved locally with localStorage. -->
+  <main class="app-shell">
+    <header class="hero">
+      <div class="brand-mark" aria-hidden="true">✦</div>
+      <div>
+        <p class="eyebrow">BRIGHTVIEW</p>
+        <h1>Tell us what you think</h1>
+        <p class="hero-copy">A few quick answers help us make your experience even better.</p>
+      </div>
+    </header>
+
+    <section class="progress-card" aria-label="Survey progress">
+      <div class="progress-labels">
+        <span id="stepLabel">Step 1 of 2</span>
+        <span id="progressPercent">50%</span>
+      </div>
+      <div class="progress-track" aria-hidden="true">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+    </section>
+
+    <section class="form-card" id="identityStep" aria-labelledby="identityTitle">
+      <div class="section-icon purple" aria-hidden="true">👋</div>
+      <p class="step-kicker">LET'S START WITH YOU</p>
+      <h2 id="identityTitle">What should we call you?</h2>
+      <p class="section-description">Your name helps us personalize your feedback experience.</p>
+      <form id="identityForm" novalidate>
+        <div class="field-grid">
+          <label class="field">
+            <span>First name</span>
+            <input id="firstName" name="firstName" type="text" autocomplete="given-name" placeholder="Alex" required>
+            <small class="error-message" id="firstNameError"></small>
+          </label>
+          <label class="field">
+            <span>Last name</span>
+            <input id="lastName" name="lastName" type="text" autocomplete="family-name" placeholder="Morgan" required>
+            <small class="error-message" id="lastNameError"></small>
+          </label>
+        </div>
+        <button class="primary-button" type="submit">Continue to survey <span aria-hidden="true">→</span></button>
+      </form>
+    </section>
+
+    <section class="form-card hidden" id="surveyStep" aria-labelledby="surveyTitle">
+      <div class="section-icon coral" aria-hidden="true">💬</div>
+      <p class="step-kicker">YOUR EXPERIENCE</p>
+      <h2 id="surveyTitle">Hi, <span id="nameGreeting">there</span>!</h2>
+      <p class="section-description">Share your honest thoughts. There are no wrong answers.</p>
+      <form id="surveyForm" novalidate>
+        <fieldset class="question-block">
+          <legend>How satisfied are you with your overall experience?</legend>
+          <div class="rating-grid">
+            <label class="rating-option"><input type="radio" name="satisfaction" value="Very dissatisfied" required><span>😞<small>Very dissatisfied</small></span></label>
+            <label class="rating-option"><input type="radio" name="satisfaction" value="Dissatisfied"><span>🙁<small>Dissatisfied</small></span></label>
+            <label class="rating-option"><input type="radio" name="satisfaction" value="Neutral"><span>😐<small>Neutral</small></span></label>
+            <label class="rating-option"><input type="radio" name="satisfaction" value="Satisfied"><span>🙂<small>Satisfied</small></span></label>
+            <label class="rating-option"><input type="radio" name="satisfaction" value="Very satisfied"><span>🤩<small>Very satisfied</small></span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="question-block">
+          <legend>How easy was it to use our service?</legend>
+          <div class="choice-row">
+            <label class="choice-pill"><input type="radio" name="ease" value="Very difficult" required><span>Very difficult</span></label>
+            <label class="choice-pill"><input type="radio" name="ease" value="Difficult"><span>Difficult</span></label>
+            <label class="choice-pill"><input type="radio" name="ease" value="Okay"><span>Okay</span></label>
+            <label class="choice-pill"><input type="radio" name="ease" value="Easy"><span>Easy</span></label>
+            <label class="choice-pill"><input type="radio" name="ease" value="Very easy"><span>Very easy</span></label>
+          </div>
+        </fieldset>
+
+        <label class="field comment-field">
+          <span>What could we do better? <em>(optional)</em></span>
+          <textarea id="comments" name="comments" rows="4" maxlength="500" placeholder="Tell us anything that comes to mind..."></textarea>
+          <small class="character-count"><span id="characterCount">0</span>/500</small>
+        </label>
+        <p class="form-error" id="surveyError" role="alert"></p>
+        <div class="button-row">
+          <button class="secondary-button" type="button" id="backButton">← Back</button>
+          <button class="primary-button" type="submit">Submit feedback <span aria-hidden="true">✦</span></button>
+        </div>
+      </form>
+    </section>
+
+    <section class="success-card hidden" id="successStep" aria-live="polite">
+      <div class="success-burst" aria-hidden="true">✓</div>
+      <p class="step-kicker">ALL DONE</p>
+      <h2>Thanks for sharing, <span id="successName">friend</span>!</h2>
+      <p class="section-description">Your feedback has been saved on this device. We appreciate you taking the time to help us improve.</p>
+      <div class="saved-note"><span aria-hidden="true">🔒</span> Saved privately in your browser</div>
+      <button class="secondary-button" type="button" id="newResponseButton">Start a new response</button>
+    </section>
+
+    <footer>Made with curiosity <span aria-hidden="true">•</span> Your answers stay on this device</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
