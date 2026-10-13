@@ -1,0 +1,9 @@
+{
+  "name": "persian-factorial-calculator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "یک برنامهٔ ساده برای محاسبهٔ فاکتوریل",
+  "scripts": {
+    "test": "node test.js"
+  }
+}
