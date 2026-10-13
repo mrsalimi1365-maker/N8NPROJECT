@@ -1,0 +1,9 @@
+{
+  "name": "persian-personal-intro",
+  "version": "1.0.0",
+  "private": true,
+  "description": "یک صفحه معرفی شخصی فارسی و مینیمال",
+  "scripts": {
+    "test": "node test.js"
+  }
+}
