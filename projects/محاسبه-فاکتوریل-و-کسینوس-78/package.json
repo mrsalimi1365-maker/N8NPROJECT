@@ -1,0 +1,9 @@
+{
+  "name": "persian-math-calculator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ماشین‌حساب سادهٔ فاکتوریل و کسینوس",
+  "scripts": {
+    "test": "node --test"
+  }
+}
