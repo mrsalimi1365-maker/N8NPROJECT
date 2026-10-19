@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2563eb">
+  <title>دفترچه تلفن</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-content">
+      <div>
+        <h1>دفترچه تلفن</h1>
+        <p>مخاطبان خود را ساده و آفلاین مدیریت کنید</p>
+      </div>
+      <div class="header-actions">
+        <button id="exportButton" class="button secondary" type="button">خروجی JSON</button>
+        <label class="button secondary file-label" for="importInput">ورود JSON</label>
+        <input id="importInput" type="file" accept="application/json,.json" hidden>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+    <section class="layout">
+      <section class="card form-card">
+        <h2 id="formTitle">افزودن مخاطب</h2>
+        <form id="contactForm" novalidate>
+          <input id="contactId" type="hidden">
+          <div class="field">
+            <label for="name">نام و نام خانوادگی <span>*</span></label>
+            <input id="name" name="name" required maxlength="80" autocomplete="name" placeholder="مثلاً سارا احمدی">
+          </div>
+          <div class="field">
+            <label for="phone">شماره تلفن <span>*</span></label>
+            <input id="phone" name="phone" required maxlength="25" inputmode="tel" autocomplete="tel" placeholder="مثلاً ۰۹۱۲۱۲۳۴۵۶۷">
+          </div>
+          <div class="field">
+            <label for="group">گروه</label>
+            <select id="group" name="group">
+              <option value="">بدون گروه</option>
+              <option value="خانواده">خانواده</option>
+              <option value="دوستان">دوستان</option>
+              <option value="همکاران">همکاران</option>
+              <option value="مشتریان">مشتریان</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="notes">توضیحات</label>
+            <textarea id="notes" name="notes" rows="3" maxlength="300" placeholder="توضیحات اختیاری"></textarea>
+          </div>
+          <div class="form-actions">
+            <button class="button primary" type="submit" id="saveButton">ذخیره مخاطب</button>
+            <button class="button muted" type="button" id="cancelButton" hidden>انصراف</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card list-card">
+        <div class="list-heading">
+          <div>
+            <h2>فهرست مخاطبان <span id="count" class="count">۰</span></h2>
+            <p class="hint">اطلاعات فقط روی همین دستگاه ذخیره می‌شود.</p>
+          </div>
+          <div class="sort-wrap">
+            <label for="sortSelect">مرتب‌سازی</label>
+            <select id="sortSelect">
+              <option value="name">نام</option>
+              <option value="newest">جدیدترین</option>
+              <option value="group">گروه</option>
+            </select>
+          </div>
+        </div>
+        <div class="search-wrap">
+          <label for="searchInput">جست‌وجو</label>
+          <input id="searchInput" type="search" placeholder="نام یا شماره تلفن را بنویسید...">
+        </div>
+        <div id="emptyState" class="empty-state">هنوز مخاطبی ثبت نشده است.</div>
+        <div id="contactsList" class="contacts-list"></div>
+      </section>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
