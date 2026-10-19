@@ -1,0 +1,9 @@
+{
+  "name": "persian-profile-page",
+  "version": "1.0.0",
+  "private": true,
+  "description": "صفحه معرفی شخصی فارسی بدون وابستگی خارجی",
+  "scripts": {
+    "test": "node test.js"
+  }
+}
