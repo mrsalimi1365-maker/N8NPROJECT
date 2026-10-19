@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ماشین حساب</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main class="calculator" aria-label="ماشین حساب">
+      <header class="calculator-header">
+        <div>
+          <p class="eyebrow">ابزار محاسبه</p>
+          <h1>ماشین حساب</h1>
+        </div>
+        <span class="status-dot" aria-label="آماده"></span>
+      </header>
+
+      <section class="display" aria-live="polite">
+        <div id="history" class="history">&nbsp;</div>
+        <div id="display" class="current-value">۰</div>
+      </section>
+
+      <section class="keypad" aria-label="کلیدهای ماشین حساب">
+        <button class="key key-muted" data-action="clear">پاک کردن</button>
+        <button class="key key-muted" data-action="backspace" aria-label="حذف آخرین رقم">⌫</button>
+        <button class="key key-muted" data-action="percent">٪</button>
+        <button class="key key-operator" data-operation="divide">÷</button>
+
+        <button class="key" data-number="7">۷</button>
+        <button class="key" data-number="8">۸</button>
+        <button class="key" data-number="9">۹</button>
+        <button class="key key-operator" data-operation="multiply">×</button>
+
+        <button class="key" data-number="4">۴</button>
+        <button class="key" data-number="5">۵</button>
+        <button class="key" data-number="6">۶</button>
+        <button class="key key-operator" data-operation="subtract">−</button>
+
+        <button class="key" data-number="1">۱</button>
+        <button class="key" data-number="2">۲</button>
+        <button class="key" data-number="3">۳</button>
+        <button class="key key-operator" data-operation="add">+</button>
+
+        <button class="key key-muted" data-action="toggle-sign">±</button>
+        <button class="key" data-number="0">۰</button>
+        <button class="key" data-action="decimal">٫</button>
+        <button class="key key-equals" data-action="equals">=</button>
+      </section>
+      <p class="hint">برای ورود سریع، از صفحه‌کلید رایانه استفاده کنید</p>
+    </main>
+    <script src="calculator.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
