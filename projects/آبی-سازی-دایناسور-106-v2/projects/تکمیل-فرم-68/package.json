@@ -1,0 +1,9 @@
+{
+  "name": "brightview-survey",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A colorful offline survey form with localStorage persistence.",
+  "scripts": {
+    "test": "node --test"
+  }
+}
