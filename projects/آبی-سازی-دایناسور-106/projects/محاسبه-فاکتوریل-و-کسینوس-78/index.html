@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ماشین‌حساب رنگارنگ</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="hero">
+        <span class="hero-badge">محاسبه‌گر کوچک و کاربردی</span>
+        <h1>ماشین‌حساب ریاضی</h1>
+        <p>فاکتوریل و کسینوس زاویه را سریع و دقیق محاسبه کنید.</p>
+      </header>
+
+      <section class="cards" aria-label="ابزارهای محاسباتی">
+        <article class="card factorial-card">
+          <div class="icon" aria-hidden="true">!</div>
+          <h2>محاسبهٔ فاکتوریل</h2>
+          <p class="description">یک عدد صحیح نامنفی وارد کنید.</p>
+          <form id="factorial-form" novalidate>
+            <label for="factorial-input">عدد</label>
+            <input id="factorial-input" name="factorial" type="number" min="0" step="1" placeholder="مثلاً ۵" required />
+            <button type="submit">محاسبهٔ فاکتوریل</button>
+          </form>
+          <div id="factorial-result" class="result" role="status" aria-live="polite">نتیجه اینجا نمایش داده می‌شود.</div>
+        </article>
+
+        <article class="card cosine-card">
+          <div class="icon" aria-hidden="true">◒</div>
+          <h2>محاسبهٔ کسینوس</h2>
+          <p class="description">زاویه را برحسب درجه وارد کنید.</p>
+          <form id="cosine-form" novalidate>
+            <label for="cosine-input">زاویه (درجه)</label>
+            <input id="cosine-input" name="cosine" type="number" step="any" placeholder="مثلاً ۶۰" required />
+            <button type="submit">محاسبهٔ کسینوس</button>
+          </form>
+          <div id="cosine-result" class="result" role="status" aria-live="polite">نتیجه اینجا نمایش داده می‌شود.</div>
+        </article>
+      </section>
+
+      <footer>واحد زاویه در بخش کسینوس: درجه</footer>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
