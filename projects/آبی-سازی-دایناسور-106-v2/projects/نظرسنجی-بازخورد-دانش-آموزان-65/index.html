@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>نظرسنجی بازخورد دانش‌آموزان</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <p class="eyebrow">بازخورد دانش‌آموزان</p>
+      <h1>نظر شما درباره کلاس چیست؟</h1>
+      <p>با پاسخ دادن به پنج سؤال کوتاه، به ما کمک کنید تجربه یادگیری را بهتر کنیم.</p>
+    </header>
+
+    <section class="card" aria-labelledby="survey-title">
+      <div class="section-heading">
+        <div>
+          <h2 id="survey-title">فرم نظرسنجی</h2>
+          <p>لطفاً به هر پنج سؤال پاسخ دهید.</p>
+        </div>
+        <span id="question-count" class="badge">۵ سؤال</span>
+      </div>
+
+      <form id="survey-form" novalidate>
+        <div id="questions"></div>
+        <button class="primary-button" type="submit">ثبت پاسخ‌ها</button>
+        <p id="form-message" class="message" role="alert" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="card results-card" aria-labelledby="results-title">
+      <div class="section-heading">
+        <div>
+          <h2 id="results-title">نتایج ثبت‌شده</h2>
+          <p id="response-count">هنوز پاسخی ثبت نشده است.</p>
+        </div>
+        <button id="clear-button" class="secondary-button" type="button">حذف همه پاسخ‌ها</button>
+      </div>
+      <div id="averages" class="averages" aria-live="polite"></div>
+      <div id="comments" class="comments"></div>
+    </section>
+  </main>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
