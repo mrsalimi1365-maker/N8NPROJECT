@@ -1,0 +1,9 @@
+{
+  "name": "persian-colorful-survey",
+  "version": "1.0.0",
+  "private": true,
+  "description": "یک فرم نظرسنجی فارسی دومرحله‌ای و بدون وابستگی خارجی",
+  "scripts": {
+    "test": "node test.js"
+  }
+}
