@@ -1,0 +1,9 @@
+{
+  "name": "persian-intro-page",
+  "version": "1.0.0",
+  "private": true,
+  "description": "یک صفحه معرفی ساده فارسی بدون وابستگی خارجی",
+  "scripts": {
+    "test": "node test.js"
+  }
+}
