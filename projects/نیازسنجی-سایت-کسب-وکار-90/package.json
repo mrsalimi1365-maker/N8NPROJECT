@@ -1,9 +1,0 @@
-{
-  "name": "ketabforooshi-static",
-  "version": "1.0.0",
-  "private": true,
-  "description": "صفحه معرفی فارسی و راست‌به‌چپ کتاب‌فروشی",
-  "scripts": {
-    "test": "node test.js"
-  }
-}
