@@ -1,9 +1,0 @@
-{
-  "name": "offline-dino-game",
-  "version": "1.0.0",
-  "private": true,
-  "description": "بازی دایناسور آفلاین با Canvas",
-  "scripts": {
-    "test": "node --test"
-  }
-}
