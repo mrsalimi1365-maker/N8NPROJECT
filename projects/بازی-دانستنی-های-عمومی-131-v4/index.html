@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="بازی سرگرم‌کننده اطلاعات عمومی با پنج سؤال چهارگزینه‌ای">
+  <title>مسابقه اطلاعات عمومی</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <section class="quiz-card" aria-live="polite">
+      <header class="quiz-header">
+        <div class="brand-icon" aria-hidden="true">🧠</div>
+        <div>
+          <p class="eyebrow">یک چالش کوتاه و سرگرم‌کننده</p>
+          <h1>مسابقه اطلاعات عمومی</h1>
+        </div>
+      </header>
+
+      <div id="quiz-view">
+        <div class="progress-row">
+          <span id="question-counter">سؤال ۱ از ۵</span>
+          <span id="score-label">امتیاز: ۰</span>
+        </div>
+        <div class="progress-track" aria-label="پیشرفت آزمون">
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+
+        <div class="question-area">
+          <span class="question-number" id="question-number">۰۱</span>
+          <h2 id="question-text">سؤال در حال بارگذاری است...</h2>
+        </div>
+
+        <div id="options" class="options" role="radiogroup" aria-label="گزینه‌های پاسخ"></div>
+        <p id="error-message" class="error-message" role="alert" hidden>لطفاً یکی از گزینه‌ها را انتخاب کنید.</p>
+
+        <button id="next-button" class="primary-button" type="button">
+          <span id="next-label">سؤال بعدی</span>
+          <span aria-hidden="true">←</span>
+        </button>
+      </div>
+
+      <div id="result-view" class="result-view" hidden>
+        <div class="result-emoji" aria-hidden="true">🎉</div>
+        <p class="eyebrow">آزمون به پایان رسید</p>
+        <h2>نتیجه شما</h2>
+        <div class="final-score"><span id="final-score">۰</span><small> از ۵</small></div>
+        <p id="result-message" class="result-message"></p>
+        <div class="result-details">
+          <div><strong id="correct-count">۰</strong><span>پاسخ درست</span></div>
+          <div><strong id="wrong-count">۰</strong><span>پاسخ نادرست</span></div>
+        </div>
+        <button id="restart-button" class="primary-button" type="button">شروع دوباره ↻</button>
+      </div>
+    </section>
+    <p class="footer-note">دانش خودت را محک بزن و رکوردت را بهتر کن!</p>
+  </main>
+</body>
+</html>
