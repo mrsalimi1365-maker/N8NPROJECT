@@ -1,0 +1,12 @@
+{
+  "name": "persian-general-quiz",
+  "version": "1.0.0",
+  "description": "بازی وبی آزمون اطلاعات عمومی با ۵ سؤال چهارگزینه‌ای",
+  "main": "script.js",
+  "scripts": {
+    "test": "node tests/quiz.test.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
