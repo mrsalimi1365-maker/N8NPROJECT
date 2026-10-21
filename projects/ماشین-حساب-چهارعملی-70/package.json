@@ -1,9 +1,0 @@
-{
-  "name": "persian-calculator",
-  "version": "1.0.0",
-  "private": true,
-  "description": "ماشین‌حساب ساده فارسی برای چهار عمل اصلی",
-  "scripts": {
-    "test": "node tests/test.js"
-  }
-}
