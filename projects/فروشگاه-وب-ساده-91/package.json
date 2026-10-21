@@ -1,9 +1,0 @@
-{
-  "name": "navamarket-static-store",
-  "version": "1.0.0",
-  "private": true,
-  "description": "فروشگاه استاتیک فارسی نوا مارکت",
-  "scripts": {
-    "test": "node --test tests/app.test.js"
-  }
-}
