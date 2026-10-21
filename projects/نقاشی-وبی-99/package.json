@@ -1,9 +1,0 @@
-{
-  "name": "persian-simple-paint",
-  "version": "1.0.0",
-  "private": true,
-  "description": "برنامه نقاشی ساده و بدون وابستگی خارجی",
-  "scripts": {
-    "test": "node test.js"
-  }
-}
