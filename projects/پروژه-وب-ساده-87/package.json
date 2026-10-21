@@ -1,8 +1,0 @@
-{
-  "name": "persian-dark-calculator",
-  "version": "1.0.0",
-  "description": "ماشین حساب ساده فارسی با رابط کاربری تیره",
-  "scripts": {
-    "test": "node tests/calculator.test.js"
-  }
-}
