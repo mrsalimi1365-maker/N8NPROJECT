@@ -1,9 +1,0 @@
-{
-  "name": "school-attendance-local",
-  "version": "1.0.0",
-  "private": true,
-  "description": "وب‌اپلیکیشن ساده حضور و غیاب مدرسه",
-  "scripts": {
-    "test": "node --test"
-  }
-}
