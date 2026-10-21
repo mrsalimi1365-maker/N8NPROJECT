@@ -1,9 +1,0 @@
-{
-  "name": "phonebook-fa",
-  "version": "1.0.0",
-  "private": true,
-  "description": "دفترچه تلفن فارسی آفلاین",
-  "scripts": {
-    "test": "node --test"
-  }
-}
