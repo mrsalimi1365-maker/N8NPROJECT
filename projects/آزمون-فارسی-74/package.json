@@ -1,8 +1,0 @@
-{
-  "name": "azmoon-farsi",
-  "version": "1.0.0",
-  "description": "آزمون فارسی",
-  "scripts": {
-    "test": "node test.js"
-  }
-}
