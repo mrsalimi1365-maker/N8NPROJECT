@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ماشین حساب مهندسی</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="calculator" aria-label="ماشین حساب مهندسی">
+    <header class="calculator-header">
+      <div>
+        <p class="eyebrow">محاسبه‌گر مهندسی</p>
+        <h1>ماشین حساب</h1>
+      </div>
+      <span class="angle-badge">درجه</span>
+    </header>
+
+    <section class="display" aria-live="polite">
+      <div id="previous" class="previous-display"></div>
+      <div id="display" class="main-display">۰</div>
+    </section>
+
+    <section class="keypad" aria-label="صفحه کلید ماشین حساب">
+      <button class="key function" data-action="clear">پاک کردن</button>
+      <button class="key function" data-action="backspace">⌫</button>
+      <button class="key function" data-action="trig" data-value="sin">sin</button>
+      <button class="key function" data-action="trig" data-value="cos">cos</button>
+
+      <button class="key function" data-action="power" data-value="2">مربع</button>
+      <button class="key function" data-action="power" data-value="3">مکعب</button>
+      <button class="key function" data-action="logarithm">ln</button>
+      <button class="key operator" data-value="÷">÷</button>
+
+      <button class="key number" data-value="7">۷</button>
+      <button class="key number" data-value="8">۸</button>
+      <button class="key number" data-value="9">۹</button>
+      <button class="key operator" data-value="×">×</button>
+
+      <button class="key number" data-value="4">۴</button>
+      <button class="key number" data-value="5">۵</button>
+      <button class="key number" data-value="6">۶</button>
+      <button class="key operator" data-value="−">−</button>
+
+      <button class="key number" data-value="1">۱</button>
+      <button class="key number" data-value="2">۲</button>
+      <button class="key number" data-value="3">۳</button>
+      <button class="key operator" data-value="+">+</button>
+
+      <button class="key number zero" data-value="0">۰</button>
+      <button class="key number" data-value=".">٫</button>
+      <button class="key equals" data-action="equals">=</button>
+    </section>
+
+    <section class="history-section">
+      <div class="history-title">
+        <h2>تاریخچه</h2>
+        <button id="clear-history" class="text-button" type="button">پاک کردن تاریخچه</button>
+      </div>
+      <ul id="history" class="history-list" aria-label="تاریخچه محاسبات"></ul>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
