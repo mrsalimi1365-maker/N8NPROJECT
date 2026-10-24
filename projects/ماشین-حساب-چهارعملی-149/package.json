@@ -1,0 +1,9 @@
+{
+  "name": "persian-flat-calculator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ماشین حساب وب فارسی با چهار عمل اصلی",
+  "scripts": {
+    "test": "node --test"
+  }
+}
