@@ -1,0 +1,9 @@
+{
+  "name": "persian-engineering-calculator",
+  "version": "1.0.0",
+  "description": "ماشین حساب مهندسی فارسی با پشتیبانی از چهار عمل اصلی، سینوس و کسینوس",
+  "private": true,
+  "scripts": {
+    "test": "node test/calculator.test.js"
+  }
+}
