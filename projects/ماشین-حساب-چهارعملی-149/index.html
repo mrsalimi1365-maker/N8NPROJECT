@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ماشین حساب ساده و رنگارنگ فارسی">
+  <title>ماشین حساب رنگی</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="calculator" aria-label="ماشین حساب">
+    <header class="calculator__header">
+      <div>
+        <p class="eyebrow">محاسبه سریع و ساده</p>
+        <h1>ماشین حساب</h1>
+      </div>
+      <span class="brand-mark" aria-hidden="true">✦</span>
+    </header>
+
+    <section class="display" aria-live="polite" aria-atomic="true">
+      <span class="display__label">نتیجه</span>
+      <output id="display" class="display__value">۰</output>
+    </section>
+
+    <section class="keys" aria-label="کلیدهای ماشین حساب">
+      <button class="key key--utility" data-action="clear" type="button">پاک</button>
+      <button class="key key--utility" data-action="backspace" type="button" aria-label="حذف آخرین رقم">⌫</button>
+      <button class="key key--utility" data-action="sign" type="button">±</button>
+      <button class="key key--operator" data-value="/" type="button">÷</button>
+
+      <button class="key" data-value="7" type="button">۷</button>
+      <button class="key" data-value="8" type="button">۸</button>
+      <button class="key" data-value="9" type="button">۹</button>
+      <button class="key key--operator" data-value="*" type="button">×</button>
+
+      <button class="key" data-value="4" type="button">۴</button>
+      <button class="key" data-value="5" type="button">۵</button>
+      <button class="key" data-value="6" type="button">۶</button>
+      <button class="key key--operator" data-value="-" type="button">−</button>
+
+      <button class="key" data-value="1" type="button">۱</button>
+      <button class="key" data-value="2" type="button">۲</button>
+      <button class="key" data-value="3" type="button">۳</button>
+      <button class="key key--operator" data-value="+" type="button">+</button>
+
+      <button class="key key--wide" data-value="0" type="button">۰</button>
+      <button class="key" data-action="decimal" type="button">٫</button>
+      <button class="key key--equals" data-action="calculate" type="button">=</button>
+    </section>
+    <p class="keyboard-hint">راهنما: از صفحه‌کلید هم می‌توانید استفاده کنید</p>
+  </main>
+  <script src="calculator.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
